@@ -524,10 +524,10 @@ class Matcha
           
         $stat = array();
         foreach ($rows as $row) {
-            $row = $widget->filter($row);
+            $post = Helper::widgetById('Contents', $row['cid']);
             $arr = array(
-                'title' => $row['title'],
-                'permalink' => $row['permalink']
+                'title' => $post->title,
+                'permalink' => $post->permalink
             );
             $stat[date('Y', $row['created'])][$row['created']] = $arr;
         }
